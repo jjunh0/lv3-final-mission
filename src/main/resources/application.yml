@@ -1,7 +1,12 @@
 spring:
     profiles:
         active: dev
+jwt:
+    key: ${JWT}
+    expiration: 360000
 
+name:
+    key: ${NAME}
 ---
 spring:
     config:
