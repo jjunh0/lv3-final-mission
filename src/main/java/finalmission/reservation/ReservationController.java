@@ -39,7 +39,7 @@ public class ReservationController {
 
     @DeleteMapping("/reservations")
     public ResponseEntity<Void> delete(@AuthMember Member member,
-        @RequestParam("reservationId") Long reservationId) {
+        @RequestParam("id") Long reservationId) {
         reservationService.delete(member, reservationId);
         return ResponseEntity.ok().build();
     }

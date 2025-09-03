@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(IllegalArgumentException.class)
-    public ResponseEntity<ExceptionResponse> handelIllegalArgumentException(
+    public ResponseEntity<ExceptionResponse> handleIllegalArgumentException(
         IllegalArgumentException e) {
-        return ResponseEntity.badRequest().body(new ExceptionResponse(400, e.getMessage()));
+        return ResponseEntity.status(500).body(new ExceptionResponse(500, e.getMessage()));
     }
 }

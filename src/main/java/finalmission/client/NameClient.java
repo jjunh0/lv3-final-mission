@@ -2,6 +2,7 @@ package finalmission.client;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Profile;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
@@ -18,6 +19,11 @@ public class NameClient {
     }
 
     public String getRandomName() {
+        // 테스트 환경에서는 고정된 이름 반환
+        if (apiKey == null || apiKey.equals("test-api-key")) {
+            return "TestRoom";
+        }
+        
         return nameRestClient.get()
             .header("X-Api-Key", apiKey)
             .retrieve()
