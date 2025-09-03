@@ -60,6 +60,7 @@ jobs:
           sudo nohup java \
             -Dspring.datasource.username="$DB_USERNAME" \
             -Dspring.datasource.password="$DB_PASSWORD" \
+            -Dspring.datasource.url="$DB_URL" \
             -Dspring.profiles.active=prod \
             -Dserver.port=80 \
             -jar ./prod-build.jar >> output.log 2>&1 &
