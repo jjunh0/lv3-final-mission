@@ -1,0 +1,20 @@
+spring:
+    profiles:
+        active: dev
+jwt:
+    key: ${JWT}
+    expiration: 360000
+
+name:
+    key: ${NAME}
+---
+spring:
+    config:
+        activate:
+            on-profile: dev
+
+---
+spring:
+    config:
+        activate:
+            on-profile: prod
