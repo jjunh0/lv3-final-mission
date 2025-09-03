@@ -37,6 +37,7 @@ jobs:
       DB_URL: ${{ secrets.DB_URL }}
       DB_USERNAME: ${{ secrets.DB_USERNAME }}
       DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+      JWT: ${{ secrets.JWT }}
 
     steps:
       - name: Download JAR artifact
@@ -60,6 +61,7 @@ jobs:
           sudo nohup java \
             -Dspring.datasource.username="$DB_USERNAME" \
             -Dspring.datasource.password="$DB_PASSWORD" \
+            -Dspring.jwt.key="$JWT" \
             -Dspring.datasource.url="$DB_URL" \
             -Dspring.profiles.active=prod \
             -Dserver.port=80 \
