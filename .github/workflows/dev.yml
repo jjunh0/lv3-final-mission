@@ -60,7 +60,7 @@ jobs:
           sudo nohup java \
             -Dspring.datasource.username="$DB_USERNAME" \
             -Dspring.datasource.password="$DB_PASSWORD" \
-            -Dspring.jwt.key="$JWT" \
+            -Djwt.key="$JWT" \
             -Dspring.profiles.active=dev \
             -Dserver.port=80 \
             -jar ./dev-build.jar >> output.log 2>&1 &
